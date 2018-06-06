@@ -40,6 +40,15 @@ $ale_shortcodes['button'] = array(
 				'button_anim-shadow' => 'Pulse Shadow'
 			)
 		),
+		'center' => array(
+			'type' => 'select',
+			'label' => __('Button Centered', 'aletheme'),
+			'desc' => __('Select the button\'s type', 'aletheme'),
+			'options' => array(
+				'' => 'No center',
+				'button_centered' => 'Centered',
+			)
+		),
 		'target' => array(
 			'type' => 'select',
 			'label' => __('Button Target', 'aletheme'),
@@ -57,7 +66,7 @@ $ale_shortcodes['button'] = array(
 			'desc' => __('Add the button\'s text', 'aletheme'),
 		)
 	),
-	'shortcode' => '[ale_button url="{{url}}" style="{{style}}" type="{{type}}" target="{{target}}" shadow="{{shadow}}"] {{content}} [/ale_button]',
+	'shortcode' => '[ale_button url="{{url}}" style="{{style}}" type="{{type}}" target="{{target}}" shadow="{{shadow}}" center="{{center}}"] {{content}} [/ale_button]',
 	'popup_title' => __('Insert Button Shortcode', 'aletheme')
 );
 

@@ -216,6 +216,7 @@ if (!function_exists('ale_button')) {
             'style' => 'button_green',
             'size' => 'small',
             'type' => '',
+            'center' => '',
             'shadow' => ''
         ), $atts));
         $url = ($target == 'modal') ? "#" : $url;
@@ -224,8 +225,7 @@ if (!function_exists('ale_button')) {
         } else {
             $target = 'target="' . $target . '"';
         }
-
-        return '<a  ' . $target . 'class="button ' . $shadow . ' ' . $style . ' ' . $type . '" href="' . $url . '">' . do_shortcode($content) . '</a>';
+        return '<a ' . $target . ' class="button ' . $shadow . ' ' . $style . ' ' . $type . ' ' . $center . '" href="' . $url . '">' . do_shortcode($content) . '</a>';
     }
 
     add_shortcode('ale_button', 'ale_button');
@@ -474,7 +474,7 @@ if (!function_exists('ale_map')) {
             <script type="text/javascript">
                 var map_<?php echo $map_id; ?>;
 
-                function ale_run_map_<?php echo $map_id; ?>() {
+                function ale_run_map_ <?php echo $map_id; ?>() {
                     var location = new google.maps.LatLng("<?php echo $coordinates['lat']; ?>", "<?php echo $coordinates['lng']; ?>");
                     var map_options = {
                         zoom: 15,
@@ -490,7 +490,7 @@ if (!function_exists('ale_map')) {
 
                 ale_run_map_<?php echo $map_id; ?>();
             </script>
-        <?php
+            <?php
         endif;
         return ob_get_clean();
 
