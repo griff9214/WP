@@ -67,6 +67,7 @@
         </div>
     </footer>
 </div>
+<div class="to-top"></div>
 </div>
 <?php
 get_template_part( 'template-parts/modal-window' );
