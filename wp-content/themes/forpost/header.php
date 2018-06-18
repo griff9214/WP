@@ -40,10 +40,12 @@
             <a href="<? echo get_site_url(); ?>" class="header__logo"></a>
 
             <?
-            if ($post->post_type == 'voprosi') {
-                header_nav_menu(9);
+            //id страниц, на которых показываем краткое меню без вложенностей
+            $short_menu_posts = [6, 538, 609];
+            if ($post->post_type == 'voprosi' || in_array($post->ID,$short_menu_posts)) {
+                header_nav_menu(9); //меню без вложенностей
             } else {
-                header_nav_menu(3);
+                header_nav_menu(3); //волное верхнее меню
             }; ?>
             <a href="#menu" class="hamburger hamburger--emphatic">
             <span class="hamburger-box">
