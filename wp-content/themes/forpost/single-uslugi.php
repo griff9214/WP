@@ -18,6 +18,22 @@ get_header(); ?>
                     <a href="#" data-toggle="modal" data-target="#myModal"
                        class="button promo-section__button button_green button_cont-fit">Расчитать стоимость охраны</a>
                 </div>
+                <? if ( $banner == '' ) { ?>
+                    <div class="promo-section__right-side">
+                        <div id="parallxWrapper">
+                            <div class="parallxBackground">
+                                <div class="parallxLayerFirst shadowed"
+                                     data-bind="attr: { style:'-webkit-transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() * 0.9 + 'deg) rotateX(' + relativeMouse.y() + 'deg);transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() * 0.9 + 'deg) rotateX(' + relativeMouse.y() + 'deg)' }"></div>
+                                <div class="parallxLayerSecond shadowed"
+                                     data-bind="attr: { style:'-webkit-transform:perspective(1000px) translateZ(100px) rotateY(' + relativeMouse.x() * 0.7 + 'deg) rotateX(' + relativeMouse.y() + 'deg);transform:perspective(1000px) translateZ(100px) rotateY(' + relativeMouse.x() * 0.7 + 'deg) rotateX(' + relativeMouse.y() + 'deg)' }"></div>
+                                <div class="parallxLayerThird shadowed"
+                                     data-bind="attr: { style:'-webkit-transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() + 'deg) rotateX(' + relativeMouse.y() + 'deg);transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() + 'deg) rotateX(' + relativeMouse.y() + 'deg)' }"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <?
+                } ?>
+
             </div>
 			<? if ( $banner == '' ) { ?>
                 <div id="smoke" class="smokeParallax">
@@ -30,34 +46,6 @@ get_header(); ?>
 				<?
 			} ?>
         </div>
-		<? if ( $banner == '' ) { ?>
-            <div class="promo-section__right-side">
-                <div id="parallxWrapper">
-                    <div class="parallxBackground">
-                        <div class="parallxLayerFirst shadowed"
-                             data-bind="attr: { style:'-webkit-transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() * 0.9 + 'deg) rotateX(' + relativeMouse.y() + 'deg);transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() * 0.9 + 'deg) rotateX(' + relativeMouse.y() + 'deg)' }"></div>
-                        <div class="parallxLayerSecond shadowed"
-                             data-bind="attr: { style:'-webkit-transform:perspective(1000px) translateZ(100px) rotateY(' + relativeMouse.x() * 0.7 + 'deg) rotateX(' + relativeMouse.y() + 'deg);transform:perspective(1000px) translateZ(100px) rotateY(' + relativeMouse.x() * 0.7 + 'deg) rotateX(' + relativeMouse.y() + 'deg)' }"></div>
-                        <div class="parallxLayerThird shadowed"
-                             data-bind="attr: { style:'-webkit-transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() + 'deg) rotateX(' + relativeMouse.y() + 'deg);transform:perspective(1000px) translateZ(20px) rotateY(' + relativeMouse.x() + 'deg) rotateX(' + relativeMouse.y() + 'deg)' }"></div>
-                        <!--<svg height="0" xmlns="http://www.w3.org/2000/svg">-->
-                        <!--<filter id="drop-shadow">-->
-                        <!--<feGaussianBlur in="SourceAlpha" stdDeviation="4"/>-->
-                        <!--<feOffset dx="12" dy="12" result="offsetblur"-->
-                        <!--data-bind="attr: { dx: - relativeMouse.x()}"/>-->
-                        <!--<feFlood flood-color="rgba(0,0,0,0.5)"/>-->
-                        <!--<feComposite in2="offsetblur" operator="in"/>-->
-                        <!--<feMerge>-->
-                        <!--<feMergeNode/>-->
-                        <!--<feMergeNode in="SourceGraphic"/>-->
-                        <!--</feMerge>-->
-                        <!--</filter>-->
-                        <!--</svg>-->
-                    </div>
-                </div>
-            </div>
-			<?
-		} ?>
         <div class="promo-section__breadcrumbs">
             <div class="wrapper">
 				<? echo get_breadcrumbs(); ?>

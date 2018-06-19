@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Шаблон с H1 в шапке
+Template Name: Шаблон без боковой колонки
 Template Post Type: uslugi
 */
 get_header(); ?>
@@ -9,8 +9,8 @@ get_header(); ?>
         <div class="wrapper">
             <div class="row">
                 <div class="promo-section__left-side" <? if ( $banner != '' ) { ?> style="padding-bottom: 0;" <? } ?>>
-                    <h1 class="promo-section__sub-header promo-section__sub-header_have-bord promo-section__header--pos">
-                        <? echo ale_get_meta( 'header_heading' ); ?></h1>
+                    <span class="promo-section__sub-header promo-section__sub-header_have-bord promo-section__header--pos">
+                        <? echo ale_get_meta( 'header_heading' ); ?></span>
                     <div class="promo-section__text">
 						<? echo ale_get_meta( 'header_text' ); ?>
                     </div>
@@ -53,7 +53,7 @@ get_header(); ?>
     <div class="page-content">
         <div class="wrapper">
             <div class="row">
-                <main class="main_inside">
+                <main class="main_inside main_inside-8">
 					<?php
 					while ( have_posts() ) : the_post();
 
@@ -63,9 +63,6 @@ get_header(); ?>
 					?>
 
                 </main>
-				<?php
-				get_sidebar();
-				?>
             </div>
         </div>
     </div>
