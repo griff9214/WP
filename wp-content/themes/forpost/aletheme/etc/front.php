@@ -73,14 +73,13 @@ function ale_enqueue_scripts() {
     wp_register_script( 'ale_knockout', 'http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js','', '', true );
     wp_register_script( 'ale_recaptcha', 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit','', '', true );
     wp_register_script( 'ale_scripts', THEME_URL . '/js/scripts.min.js', '', false, true );
-    //wp_register_script( 'ale_metrics', THEME_URL . '/js/metrics.min.js', '', false, false );
-    //wp_enqueue_script( 'ale_modules' );
+    wp_register_script( 'jivosite', THEME_URL . '/js/jivosite.js', '', false, false );
 	wp_enqueue_script( 'ale_jquery' );
 	wp_enqueue_script( 'ale_jq_easings' );
 	wp_enqueue_script( 'ale_knockout' );
 	wp_enqueue_script( 'ale_recaptcha' );
 	wp_enqueue_script( 'ale_scripts' );
-	//wp_enqueue_script( 'ale_metrics' );
+	wp_enqueue_script( 'jivosite' );
 }
 add_action( 'wp_enqueue_scripts', 'ale_enqueue_scripts');
 
