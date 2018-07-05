@@ -42,10 +42,13 @@
             <?
             //id страниц, на которых показываем краткое меню без вложенностей
             $short_menu_posts = [6, 538, 609];
-            if ($post->post_type == 'voprosi' || in_array($post->ID,$short_menu_posts)) {
-                header_nav_menu(9); //меню без вложенностей
+            if (is_front_page()){
+                header_nav_menu(10);
+            }
+            elseif ($post->post_type == 'voprosi' || in_array($post->ID,$short_menu_posts)) {
+                header_nav_menu(9); //Меню без вложенностей
             } else {
-                header_nav_menu(3); //волное верхнее меню
+                header_nav_menu(3); //Полное верхнее меню
             }; ?>
             <a href="#menu" class="hamburger hamburger--emphatic">
             <span class="hamburger-box">

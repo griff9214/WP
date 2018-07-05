@@ -60,7 +60,7 @@
     </div>
 </section>
 <main>
-    <section class="ourServices ourServices--pos">
+    <section id="ourServices" class="ourServices ourServices--pos">
         <div class="wrapper">
             <div class="row">
                 <div class="section-header section-header_have-logo section-header_have-bord section-header_text-centered section-header--pos">
@@ -69,7 +69,7 @@
                 <? mosaic_menu(8); ?>
             </div>
         </div>
-        <a href="#" class="ourServices__button button button_green">Смотреть все услуги</a>
+        <a href="<?=get_permalink(538);?>" class="ourServices__button button button_green">Все услуги охраны</a>
     </section>
     <div class="parallax-window" data-parallax="scroll" data-position="center center"
          data-image-src="<? bloginfo(template_directory); ?>/images/parallax1.png">
@@ -128,7 +128,7 @@
                         <li class="someItems__item">С различными системами видеонаблюдения</li>
                         <li class="someItems__item">С различными системами охранно-пожарной сигнализации</li>
                     </ul>
-                    <a href="#" data-toggle="modal" data-target="#myModal"
+                    <a href="" type="button" data-toggle="modal" data-target="#myModal"
                        class="button button_centered button_green button_shadowed">хочу такую охрану</a>
                 </div>
             </div>
