@@ -20,9 +20,9 @@
                         <div class="animateNumbersNum__caption">объектов сейчас под охраной</div>
                     </div>
                 </div>
-                <a href="#" data-toggle="modal" data-target="#myModal"
+                <div data-toggle="modal" data-target="#myModal"
                    class="button promo-section__button button_green">заказать
-                    охрану</a>
+                    охрану</div>
             </div>
             <div class="promo-section__right-side">
                 <div id="parallxWrapper">

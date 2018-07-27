@@ -14,8 +14,8 @@ get_header(); ?>
                     <div class="promo-section__text">
 						<? echo ale_get_meta( 'header_text' ); ?>
                     </div>
-                    <a href="#" data-toggle="modal" data-target="#myModal"
-                       class="button promo-section__button button_green button_cont-fit">Расчитать стоимость охраны</a>
+                    <div data-toggle="modal" data-target="#myModal"
+                       class="button promo-section__button button_green button_cont-fit">Расчитать стоимость охраны</div>
                 </div>
                 <? if ( $banner == '' ) { ?>
                     <div class="promo-section__right-side">

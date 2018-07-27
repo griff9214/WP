@@ -10,7 +10,8 @@ get_header(); ?>
             <div class="row">
                 <div class="promo-section__left-side">
                     <div class="promo-section__header promo-section__header--pos">форпост -
-                        север</div>
+                        север
+                    </div>
                     <div class="promo-section__sub-header">безопасность - это в наших силах</div>
                     <div class="animateNumbers animateNumbers__promoSection animateNumbers--pos">
                         <div class="animateNumbersNum">
@@ -26,9 +27,9 @@ get_header(); ?>
                             <div class="animateNumbersNum__caption">объектов сейчас под охраной</div>
                         </div>
                     </div>
-                    <a href="#" data-toggle="modal" data-target="#myModal"
+                    <div data-toggle="modal" data-target="#myModal"
                        class="button promo-section__button button_green">заказать
-                        охрану</a>
+                        охрану</div>
                 </div>
                 <div class="promo-section__right-side">
                     <div id="parallxWrapper">
@@ -65,15 +66,23 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <section class="ourServices ourServices--pos">
+    <div class="page-content">
         <div class="wrapper">
             <div class="row">
                 <h1 class="section-header section-header_have-logo section-header_have-bord section-header_text-centered section-header--pos">
-                    Услуги</h2>
+                    <? the_title(); ?></h1>
                 <? mosaic_menu(8); ?>
             </div>
         </div>
-    </section>
+        <div class="wrapper">
+            <div class="row">
+                <main class="main_inside main_inside-8">
+                    <? the_content(); ?>
+                </main>
+            </div>
+        </div>
+    </div>
+
 <?php
 
 get_footer();

@@ -37,7 +37,7 @@
                                                               class="headerContactsSocial__im"></a><?php } ?>
                 </div>
             </div>
-            <a href="<? echo get_site_url(); ?>" class="header__logo"></a>
+            <a href="<? echo get_site_url(); ?>" class="header__logo"><img src="<? echo get_template_directory_uri()."/images/logo.png" ?>" alt="ЧОП Форпост Север. Охрана в Москве"></a>
 
             <?
             //id страниц, на которых показываем краткое меню без вложенностей

@@ -474,7 +474,7 @@ if (!function_exists('ale_map')) {
             <script type="text/javascript">
                 var map_<?php echo $map_id; ?>;
 
-                function ale_run_map_ <?php echo $map_id; ?>() {
+                function ale_run_map_<?php echo $map_id; ?>() {
                     var location = new google.maps.LatLng("<?php echo $coordinates['lat']; ?>", "<?php echo $coordinates['lng']; ?>");
                     var map_options = {
                         zoom: 15,
@@ -490,7 +490,7 @@ if (!function_exists('ale_map')) {
 
                 ale_run_map_<?php echo $map_id; ?>();
             </script>
-            <?php
+        <?php
         endif;
         return ob_get_clean();
 
@@ -577,5 +577,179 @@ if (!function_exists('ale_map')) {
     }
     //add_action( 'wp_head', 'ale_map_css' );
 }
+if (!function_exists('ale_price_calc')) {
+    function ale_price_calc($atts, $content = null)
+    {
+        //wp_enqueue_script( 'myshortcodejs', get_bloginfo('template_url') . '/js/post-calc.js' );
+        wp_add_inline_script('ale_scripts',"<script> $(document).ready(function () {
+        $('.calc__select').niceSelect();
 
+        connectSlider = document.getElementById('nouislider');
+
+        noUiSlider.create(connectSlider, {
+            start: 40,
+            step: 1,
+            connect: [true, false],
+            range: {
+                'min': 0,
+                'max': {$atts['quantity']}
+            },
+            pips: {mode: 'count', values: 5}
+        });
+        var pips = connectSlider.querySelectorAll('.noUi-value');
+
+        function clickOnPip() {
+            var value = Number(this.getAttribute('data-value'));
+            connectSlider.noUiSlider.set(value);
+        }
+
+        for (var i = 0; i < pips.length; i++) {
+            pips[i].addEventListener('click', clickOnPip);
+        }
+        var rangeInput = document.getElementById('range-input');
+
+        connectSlider.noUiSlider.on('update', function (values, handle) {
+            if (values[handle] == 0) {
+                rangeInput.value = '';
+            } else {
+                rangeInput.value = parseInt(values[handle]).toFixed(0);
+            }
+        });
+
+        rangeInput.addEventListener('keyup', function () {
+            if (this.value == '') {
+                connectSlider.noUiSlider.set(0);
+            } else {
+                connectSlider.noUiSlider.set(parseFloat(this.value));
+            }
+        });
+    });</script>");
+        return file_get_contents(TEMPLATEPATH . "/template-parts/price-calc.php");
+    }
+
+//    function ale_price_calc_scripts()
+//    {
+//        add_action('wp_footer', function () {
+//            return "<script> $(document).ready(function () {
+//        $('.calc__select').niceSelect();
+//
+//        connectSlider = document.getElementById('nouislider');
+//
+//        noUiSlider.create(connectSlider, {
+//            start: 40,
+//            step: 1,
+//            connect: [true, false],
+//            range: {
+//                'min': 0,
+//                'max': 100
+//            },
+//            pips: {mode: 'count', values: 5}
+//        });
+//        var pips = connectSlider.querySelectorAll('.noUi-value');
+//
+//        function clickOnPip() {
+//            var value = Number(this.getAttribute('data-value'));
+//            connectSlider.noUiSlider.set(value);
+//        }
+//
+//        for (var i = 0; i < pips.length; i++) {
+//            pips[i].addEventListener('click', clickOnPip);
+//        }
+//        var rangeInput = document.getElementById('range-input');
+//
+//        connectSlider.noUiSlider.on('update', function (values, handle) {
+//            if (values[handle] == 0) {
+//                rangeInput.value = '';
+//            } else {
+//                rangeInput.value = parseInt(values[handle]).toFixed(0);
+//            }
+//        });
+//
+//        rangeInput.addEventListener('keyup', function () {
+//            if (this.value == '') {
+//                connectSlider.noUiSlider.set(0);
+//            } else {
+//                connectSlider.noUiSlider.set(parseFloat(this.value));
+//            }
+//        });
+//    });</script>";
+//        }, 21);
+//
+//    }
+
+    add_shortcode('ale_price_calc', 'ale_price_calc');
+
+}
+
+//class ale_price_calc
+//{
+//    static $add_script;
+//
+//    static function init()
+//    {
+//        add_shortcode('ale_price_calc', array(__CLASS__, 'ale_price_calc_handle_shortcode'));
+//        add_action('init', array(__CLASS__, 'register_script'));
+//        add_action('wp_footer', array(__CLASS__, 'print_script'));
+//    }
+//
+//    static function ale_price_calc_handle_shortcode($atts)
+//    {
+//        self::$add_script = true;
+//        // shortcode handling here
+//        return file_get_contents(TEMPLATEPATH . "/template-parts/price-calc.php");
+//    }
+////    static function register_script() {
+////        wp_register_script('my-script', plugins_url('my-script.js', __FILE__), array('jquery'), '1.0', true);
+////    }
+//    static function print_script()
+//    {
+////        if ( ! self::$add_script )
+////            return;
+//        echo "<script> $(document).ready(function () {
+//        $('.calc__select').niceSelect();
+//
+//        connectSlider = document.getElementById('nouislider');
+//
+//        noUiSlider.create(connectSlider, {
+//            start: 40,
+//            step: 1,
+//            connect: [true, false],
+//            range: {
+//                'min': 0,
+//                'max': 100
+//            },
+//            pips: {mode: 'count', values: 5}
+//        });
+//        var pips = connectSlider.querySelectorAll('.noUi-value');
+//
+//        function clickOnPip() {
+//            var value = Number(this.getAttribute('data-value'));
+//            connectSlider.noUiSlider.set(value);
+//        }
+//
+//        for (var i = 0; i < pips.length; i++) {
+//            pips[i].addEventListener('click', clickOnPip);
+//        }
+//        var rangeInput = document.getElementById('range-input');
+//
+//        connectSlider.noUiSlider.on('update', function (values, handle) {
+//            if (values[handle] == 0) {
+//                rangeInput.value = '';
+//            } else {
+//                rangeInput.value = parseInt(values[handle]).toFixed(0);
+//            }
+//        });
+//
+//        rangeInput.addEventListener('keyup', function () {
+//            if (this.value == '') {
+//                connectSlider.noUiSlider.set(0);
+//            } else {
+//                connectSlider.noUiSlider.set(parseFloat(this.value));
+//            }
+//        });
+//    });</script>";
+//    }
+//}
+//
+//ale_price_calc::init();
 ?>

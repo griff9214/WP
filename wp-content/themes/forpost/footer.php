@@ -26,13 +26,11 @@
                     <div class="footer__header">форпост север</div>
                     <div class="footer__nav footer__nav_left">
                         <div class="footer-nav">
-                            <div class="footer-nav__title">Главное</div>
 							<? footer_main_menu(5) ?>
                         </div>
                     </div>
                     <div class="footer__nav footer__nav_right">
                         <div class="footer-nav">
-                            <div class="footer-nav__title">Услуги</div>
 							<? footer_services_menu(4) ?>
                         </div>
                     </div>

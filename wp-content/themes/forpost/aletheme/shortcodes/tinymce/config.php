@@ -488,4 +488,18 @@ $ale_shortcodes['map'] = array(
     'popup_title' => __('Insert Map Shortcode', 'aletheme')
 );
 
+$ale_shortcodes['price_calc'] = array(
+    'no_preview' => true,
+    'params' => array(
+        'quantity' => array(
+            'std' => '100',
+            'type' => 'text',
+            'label' => __('Количество охранников', 'aletheme'),
+            'desc' => __('Максимальное количество охранников', 'aletheme'),
+        ),
+    ),
+    'shortcode' => '[ale_price_calc quantity="{{quantity}}"]',
+    'popup_title' => __('Insert Map Shortcode', 'aletheme')
+);
+
 ?>
