@@ -368,7 +368,7 @@ class Aletheme_Sliders
 
         });});</script>";
 
-        add_action('wp_footer', array(__CLASS__, 'getShortcodeScript'), 21);
+        add_action('wp_footer', array(__CLASS__, 'getShortcodeScript'), 20);
 
 
             $content = '<div class="'.$slider['slug'].'">';

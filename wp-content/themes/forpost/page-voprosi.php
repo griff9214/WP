@@ -14,8 +14,8 @@ get_header(); ?>
                 <div class="promo-section__left-side promo-section__left-side_in-faq">
                 </div>
                 <div class="promo-section__right-side promo-section__right-side_in-faq">
-                    <div data-toggle="modal" data-target="#myModal"
-                       class="button button_green button_cont-fit button_anim-shadow">Расчитать стоимость охраны</div>
+                    <a href="#" data-toggle="modal" data-target="#myModal"
+                       class="button button_green button_cont-fit button_anim-shadow">Расчитать стоимость охраны</a>
                 </div>
 
             </div>

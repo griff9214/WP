@@ -50,9 +50,6 @@
                 }},
                 {text: 'Map',onclick:function(){
                     editor.execCommand("alePopup", false, {title: 'Map',identifier: 'map'})
-                }},
-                {text: 'Калькулятор цены',onclick:function(){
-                    editor.execCommand("alePopup", false, {title: 'Калькулятор цены',identifier: 'price_calc'})
                 }}
             ]
 

@@ -29,9 +29,9 @@ get_header(); ?>
                             <div class="animateNumbersNum__caption">объектов сейчас под охраной</div>
                         </div>
                     </div>
-                    <div data-toggle="modal" data-target="#myModal"
+                    <a href="#" data-toggle="modal" data-target="#myModal"
                        class="button promo-section__button button_green">заказать
-                        охрану</div>
+                        охрану</a>
                 </div>
                 <div class="promo-section__right-side">
                     <div id="parallxWrapper">
