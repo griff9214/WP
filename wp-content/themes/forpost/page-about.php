@@ -1,11 +1,18 @@
-<? get_header(); ?>
+<? get_header();
+$header_title = get_post_meta(get_the_ID(), 'page_header_title', true);
+$header_text = get_post_meta(get_the_ID(), 'page_header_text', true);
+?>
     <section class="promo-section">
         <div class="wrapper">
             <div class="row">
                 <div class="promo-section__left-side">
-                    <h1 class="promo-section__header promo-section__header--pos">форпост -
-                        север</h1>
-                    <h2 class="promo-section__sub-header">безопасность - это в наших силах</h2>
+                    <? if (!empty($header_title)): ?>
+                        <h1 class="promo-section__sub-header promo-section__sub-header_have-bord promo-section__header--pos">
+                            <? echo $header_title; ?></h1>
+                    <? endif; ?>
+                    <? if (!empty($header_text)): ?>
+                        <div class="promo-section__sub-header"><? echo $header_text; ?></div>
+                    <? endif; ?>
                     <div class="animateNumbers animateNumbers__promoSection animateNumbers--pos">
                         <div class="animateNumbersNum">
                             <div class="animateNumbersNum__num">16</div>
@@ -51,8 +58,8 @@
             <div class="wrapper aboutSection__inner">
                 <div class="row row--justifySB">
                     <div class="article aboutSection__article">
-                        <h2 class="section-header aboutSection__header section-header_have-logo">форпост-север</h2>
-                        <h3 class="sectionSubHeader aboutSection__sub-header">надежное охранное предприятие</h3>
+                        <div class="section-header aboutSection__header section-header_have-logo">форпост-север</div>
+                        <div class="sectionSubHeader aboutSection__sub-header">надежное охранное предприятие</div>
                         <p class="article__paragraph">Наше предприятие осуществляет свою
                             деятельность в строгом соответствии с Законом РФ «О частной детективной и охранной
                             деятельности». На всё виды деятельности имеются государственные лицензии. Оно укомплектовано
@@ -80,7 +87,7 @@
         </section>
         <section class="licences ourThanks--pos">
             <div class="wrapper">
-                <h3 class="textBlock__header">Официальные документы</h3>
+                <div class="textBlock__header">Официальные документы</div>
                 <div class="row row--justifySA">
                     <?php $args = array(
                         'post_type' => 'attachment',

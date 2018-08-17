@@ -427,6 +427,29 @@ function aletheme_metaboxes($meta_boxes) {
 			),
 		)
 	);
+	$meta_boxes[] = array(
+		'id'         => 'vacancies_page_metabox',
+		'title'      => 'Данные для вакансии',
+		'pages'      => array( 'vacancies' ), // Post type
+		'context'    => 'normal',
+		'priority'   => 'high',
+		'show_names' => true, // Specific post templates to display this metabox
+
+		'fields' => array(
+			array(
+				'name' => 'Текст',
+				'desc' => 'Условия/Требования/Оплата',
+				'id'   => $prefix . 'vacancy_left[]',
+				'type' => 'text',
+			),
+            array(
+				'name' => 'Текст вакансии',
+				'desc' => 'Раскрытие требований/условий',
+				'id'   => $prefix . 'vacancy_right[]',
+				'type' => 'wysiwyg',
+			),
+		)
+	);
 	return $meta_boxes;
 }
 
@@ -577,6 +600,35 @@ function aletheme_get_post_types() {
 	        ),
 	        'singular' => 'Вопрос',
 	        'multiple' => 'Вопросы',
+        ),
+        'vacancies' => array(
+	        'config' => array(
+		        'public' => true,
+		        'menu_position' => 20,
+		        'menu_icon' => 'dashicons-welcome-learn-more',
+		        'hierarchical' => true,
+		        'has_archive'   => false,
+                'supports' => array('title', 'custom-fields', 'page-attributes'),
+		        'show_in_nav_menus'=> true,
+		        'labels' => array(
+			        'name' => 'Вакансии',
+			        'singular_name' => 'Вакансия',
+			        'add_new' => 'Добавить новую',
+			        'add_new_item' => 'Добавить вакансию',
+			        'edit' => 'Редактировать',
+			        'edit_item' => 'Редактировать вакансию',
+			        'new_item' => 'Новая вакансия',
+			        'view' => 'Просмотреть',
+			        'view_item' => 'Просмотреть вакансию',
+			        'search_items' => 'Поиск по вакансиям',
+			        'not_found' => 'Вакансии не найдены',
+			        'not_found_in_trash' => 'В корзине нет вакансий',
+			        'parent' => 'Родительская вакансия'
+		        ),
+
+	        ),
+	        'singular' => 'Вакансия',
+	        'multiple' => 'Вакансии',
         ),
         'otzivy' => array(
             'config' => array(

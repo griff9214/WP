@@ -1,34 +1,18 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package forpost
- */
-
-get_header(); ?>
+<? get_header();
+$header_title = get_post_meta(get_the_ID(), 'page_header_title', true);
+$header_text = get_post_meta(get_the_ID(), 'page_header_text', true);
+?>
     <section class="promo-section">
         <div class="wrapper">
             <div class="row">
                 <div class="promo-section__left-side">
-                    <h1 class="promo-section__header promo-section__header--pos">форпост -
-                        север</h1>
-                    <h2 class="promo-section__sub-header">безопасность - это в наших силах</h2>
-                    <div class="animateNumbers animateNumbers__promoSection animateNumbers--pos">
-                        <div class="animateNumbersNum">
-                            <div class="animateNumbersNum__num">16</div>
-                            <div class="animateNumbersNum__caption">лет бесценного опыта</div>
-                        </div>
-                        <div class="animateNumbersNum animateNumbersNum__pos">
-                            <div class="animateNumbersNum__num">78</div>
-                            <div class="animateNumbersNum__caption">сотрудников в штате</div>
-                        </div>
-                        <div class="animateNumbersNum animateNumbersNum__pos">
-                            <div class="animateNumbersNum__num">23</div>
-                            <div class="animateNumbersNum__caption">объектов сейчас под охраной</div>
-                        </div>
-                    </div>
+                    <? if (!empty($header_title)): ?>
+                        <h1 class="promo-section__sub-header promo-section__sub-header_have-bord promo-section__header--pos">
+                            <? echo $header_title; ?></h1>
+                    <? endif; ?>
+                    <? if (!empty($header_text)): ?>
+                        <div class="promo-section__sub-header"><? echo $header_text; ?></div>
+                    <? endif; ?>
                     <a href="#" data-toggle="modal" data-target="#myModal"
                        class="button promo-section__button button_green">заказать
                         охрану</a>
